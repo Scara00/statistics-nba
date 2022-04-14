@@ -1,0 +1,59 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+        <div class="site_title">MENU</div>
+        <ng-container *ngFor="let item of menuList">
+            <div class="menu_element" (click)="navigate(item)">
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <div class="title">{{ item.title }}</div>
+            </div>
+        </ng-container>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <div class="main_container">
+            <div class="header">
+                <div class="title_header">
+                    <mat-icon style="color: white; cursor: pointer" (click)="drawer.toggle()" id="iconMenu">menu</mat-icon>
+                    <div class="title">NBA SCORE TODAY</div>
+                </div>
+            </div>
+            <div class="content">
+                <mat-tab-group mat-align-tabs="center" *ngIf="showGames">
+                    <!--<ng-container *ngFor="let object; in: array; let date = index">-->
+                    <mat-tab>
+                        <ng-container *ngFor="let item of array; let i = index">
+                            <div class="games">
+                                <div class="row">
+                                    <div class="team" (click)="redirectToTeam(item.home_team)">
+                                        <img src="{{ item.home_team_logo }}" style="height: 50px" />&nbsp;
+                                        <div class="name">{{ item.home_team_city }}&nbsp;</div>
+                                        <div class="score">({{ item.home_team_score }})</div>
+                                    </div>
+                                    <div class="status">
+                                        {{ item.status }}
+                                    </div>
+                                    <div class="team" (click)="redirectToTeam(item.visitor_team)">
+                                        <div class="score">
+                                            ({{ item.visitor_team_score }})&nbsp;
+                                        </div>
+                                        <div class="name">{{ item.visitor_team.city }}&nbsp;</div>
+
+                                        <img src="{{ item.visitor_team.logo }}" style="height: 50px" />
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                        </ng-container>
+                    </mat-tab>
+                    <!--</ng-container>--k>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</mat-drawer-container>
+
+<!-- <img src="https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/ind.png"> --></mat-tab-group>
+            </div>
+        </div>
+    </div>
+</mat-drawer-container>
