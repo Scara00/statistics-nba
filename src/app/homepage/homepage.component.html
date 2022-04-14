@@ -10,18 +10,28 @@
     </mat-drawer>
 
     <div class="example-sidenav-content">
+
         <div class="main_container">
+
             <div class="header">
                 <div class="title_header">
-                    <mat-icon style="color: white; cursor: pointer" (click)="drawer.toggle()" id="iconMenu">menu</mat-icon>
+                    <mat-icon style="color: white; cursor: pointer" (click)="drawer.toggle()" id="iconMenu">menu
+                    </mat-icon>
                     <div class="title">NBA SCORE TODAY</div>
                 </div>
+            </div>
+            <div class="team_container" style="display: flex;">
+                <ng-container *ngFor="let item of teamsList">
+                    <div class="circle">
+                        <img src="{{item.logo}}" style="height: 50px" />
+                    </div>
+                </ng-container>
             </div>
             <div class="content">
                 <mat-tab-group mat-align-tabs="center" *ngIf="showGames">
                     <!--<ng-container *ngFor="let object; in: array; let date = index">-->
                     <mat-tab>
-                        <ng-container *ngFor="let item of array; let i = index">
+                        <!--  <ng-container *ngFor="let item of array; let i = index">
                             <div class="games">
                                 <div class="row">
                                     <div class="team" (click)="redirectToTeam(item.home_team)">
@@ -43,7 +53,7 @@
                                     <br />
                                 </div>
                             </div>
-                        </ng-container>
+                        </ng-container> -->
                     </mat-tab>
                     <!--</ng-container>--k>
                 </mat-tab-group>
@@ -52,7 +62,8 @@
     </div>
 </mat-drawer-container>
 
-<!-- <img src="https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/ind.png"> --></mat-tab-group>
+<!-- <img src="https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/ind.png"> -->
+                </mat-tab-group>
             </div>
         </div>
     </div>

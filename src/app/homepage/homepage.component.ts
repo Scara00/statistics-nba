@@ -8,14 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  constructor(public http: HttpClient, private router: Router) {}
+  constructor(public http: HttpClient, private router: Router) { }
 
   public today: any;
   public previus: any;
   public actualDay: any;
   public previusDay: any;
-  showFiller = false;
-  menuList = [
+  public showFiller = false;
+  public teamsList: any = []
+  public menuList = [
     {
       title: 'Teams',
       icon: 'sports_basketball',
@@ -31,12 +32,50 @@ export class HomepageComponent implements OnInit {
   public listOfGames = {};
 
   ngOnInit(): void {
+
     //this.calcpreviusDay();
     //this.getFutureGame(moment().format('YYYY-MM-DD'));
+    this.getAllteamMethod()
     this.getPreviusDateGame(moment().format('YYYY-MM-DD'));
+
     this.menuList[1].active = true;
+
   }
 
+
+  getAllteamMethod() {
+    this.getAllteam((error: Error, data: any) => {
+      if (error) {
+        console.error(error)
+      } else if (data) {
+        for (let item of data.data) {
+          item['logo'] = 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/' + item.abbreviation.toLowerCase() + '.png'
+          this.teamsList.push(item)
+        }
+      }
+    })
+    console.log(this.teamsList)
+  }
+
+  getAllteam(callbackFn: Function,) {
+    const sub = this.http.get('https://www.balldontlie.io/api/v1/teams').subscribe({
+      next: (data) => {
+        callbackFn(null, data);
+      },
+      error: (error: Error) => {
+        setTimeout(() => {
+          callbackFn(error, null);
+          sub.unsubscribe()
+        });
+      },
+      complete: () => {
+        setTimeout(() => {
+          sub.unsubscribe()
+        });
+
+      }
+    })
+  }
   gettodayGame(date: string) {
     this.callApiGames(
       (err: Error, data: any) => {
