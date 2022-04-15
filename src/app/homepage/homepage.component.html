@@ -20,50 +20,38 @@
                     <div class="title">NBA SCORE TODAY</div>
                 </div>
             </div>
-            <div class="team_container" style="display: flex;">
+            <!--  <div class="team_container" style="display: flex;">
                 <ng-container *ngFor="let item of teamsList">
                     <div class="circle">
                         <img src="{{item.logo}}" style="height: 50px" />
                     </div>
                 </ng-container>
-            </div>
+            </div> -->
             <div class="content">
-                <mat-tab-group mat-align-tabs="center" *ngIf="showGames">
-                    <!--<ng-container *ngFor="let object; in: array; let date = index">-->
-                    <mat-tab>
-                        <!--  <ng-container *ngFor="let item of array; let i = index">
-                            <div class="games">
-                                <div class="row">
-                                    <div class="team" (click)="redirectToTeam(item.home_team)">
-                                        <img src="{{ item.home_team_logo }}" style="height: 50px" />&nbsp;
-                                        <div class="name">{{ item.home_team_city }}&nbsp;</div>
-                                        <div class="score">({{ item.home_team_score }})</div>
-                                    </div>
-                                    <div class="status">
-                                        {{ item.status }}
-                                    </div>
-                                    <div class="team" (click)="redirectToTeam(item.visitor_team)">
-                                        <div class="score">
-                                            ({{ item.visitor_team_score }})&nbsp;
-                                        </div>
-                                        <div class="name">{{ item.visitor_team.city }}&nbsp;</div>
+                <div class="choose_team">
+                    Choose a team
+                </div>
+                <div class="teams_container">
+                    <mat-grid-list cols="3" rowHeight="2:1">
+                        <ng-container *ngFor="let item of teamsList">
+                            <mat-grid-tile>
+                                <mat-card class="example-card">
+                                    <mat-card-title-group>
+                                        <mat-card-title style="word-break: break-all;">{{item.name}}</mat-card-title>
+                                        <mat-card-subtitle>Small</mat-card-subtitle>
+                                        <img mat-card-sm-image src="{{item.logo}}">
+                                    </mat-card-title-group>
+                                    <mat-card-content>
 
-                                        <img src="{{ item.visitor_team.logo }}" style="height: 50px" />
-                                    </div>
-                                    <br />
-                                </div>
-                            </div>
-                        </ng-container> -->
-                    </mat-tab>
-                    <!--</ng-container>--k>
-                </mat-tab-group>
-            </div>
-        </div>
-    </div>
-</mat-drawer-container>
+                                    </mat-card-content>
+                                </mat-card>
+                                <!-- ºs -->
+                            </mat-grid-tile>
+                        </ng-container>
+                    </mat-grid-list>
 
-<!-- <img src="https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/ind.png"> -->
-                </mat-tab-group>
+                </div>
+
             </div>
         </div>
     </div>
