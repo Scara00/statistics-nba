@@ -20,13 +20,6 @@
                     <div class="title">NBA SCORE TODAY</div>
                 </div>
             </div>
-            <!--  <div class="team_container" style="display: flex;">
-                <ng-container *ngFor="let item of teamsList">
-                    <div class="circle">
-                        <img src="{{item.logo}}" style="height: 50px" />
-                    </div>
-                </ng-container>
-            </div> -->
             <div class="content">
                 <div class="choose_team">
                     Choose a team
@@ -38,7 +31,7 @@
                                 <mat-card class="example-card">
                                     <mat-card-title-group>
                                         <mat-card-title style="word-break: break-all;">{{item.name}}</mat-card-title>
-                                        <mat-card-subtitle>Small</mat-card-subtitle>
+                                        <mat-card-subtitle>{{item.city}}</mat-card-subtitle>
                                         <img mat-card-sm-image src="{{item.logo}}">
                                     </mat-card-title-group>
                                     <mat-card-content>
@@ -49,9 +42,7 @@
                             </mat-grid-tile>
                         </ng-container>
                     </mat-grid-list>
-
                 </div>
-
             </div>
         </div>
     </div>
