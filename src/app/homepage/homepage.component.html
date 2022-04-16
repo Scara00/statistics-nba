@@ -32,7 +32,7 @@
                     Choose a team
                 </div>
                 <div class="teams_container">
-                    <mat-grid-list cols="3" rowHeight="2:1">
+                    <mat-grid-list cols="{{numberOfcols}}" rowHeight="2:1" (window:resize)="onResize($event)">
                         <ng-container *ngFor="let item of teamsList">
                             <mat-grid-tile>
                                 <mat-card class="example-card">
