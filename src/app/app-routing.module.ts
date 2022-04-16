@@ -9,30 +9,31 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'homepage',
+    path: 'homepage',
     loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule)
   },
   {
-    path:'team/:id',
+    path: 'team/:id',
     loadChildren: () => import('./team-detail/team-detail.module').then(m => m.TeamDetailModule)
   },
   {
-    path:'news',
+    path: 'news',
     loadChildren: () => import('./news/news.module').then(m => m.NewsModule)
   },
   {
-    path:'team-list',
+    path: 'team-list',
     loadChildren: () => import('./teams-list/teams-list.module').then(m => m.TeamsListModule)
   },
   {
-    path:'players-list',
+    path: 'players-list',
     loadChildren: () => import('./players-list/players-list.module').then(m => m.PlayersListModule)
   },
   {
-    path:'rank-list',
+    path: 'rank-list',
     loadChildren: () => import('./rank-season/rank-season.module').then(m => m.RankSeasonModule)
-  }
-  
+  },
+
+
 ];
 
 @NgModule({
