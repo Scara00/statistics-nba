@@ -30,12 +30,18 @@ export class HomepageComponent implements OnInit {
   ];
 
   public listOfGames = {};
-
+  public numberOfcols = 3
   ngOnInit(): void {
     this.getAllteamMethod()
     this.menuList[1].active = true;
-
+    this.numberOfcols = (window.innerWidth > 950) ? 4 : (window.innerWidth <= 850) ? (window.innerWidth <= 850) && (window.innerWidth >= 560) ? 2 : 1 : 3;
+    window.innerWidth
   }
+  onResize(event: any) {
+    this.numberOfcols = (event.target.innerWidth > 950) ? 4 : (event.target.innerWidth <= 850) ? (event.target.innerWidth <= 850) && (event.target.innerWidth >= 560) ? 2 : 1 : 3;
+  }
+
+
   redirectToTeam(team: any) {
     this.router.navigate(['team', team.id]);
   }
