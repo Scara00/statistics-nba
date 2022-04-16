@@ -46,6 +46,11 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['team', team.id]);
   }
 
+  /**
+   * The function takes an item as a parameter, and then uses the Angular Router to navigate to the
+   * route that is specified in the item
+   * @param {any} item - any - This is the item that is passed in from the menu.component.html file.
+   */
   navigate(item: any) {
     this.router.navigate([item.route]);
   }
@@ -64,6 +69,11 @@ export class HomepageComponent implements OnInit {
     console.log(this.teamsList)
   }
 
+  /**
+   * The function takes a callback function as an argument, and then calls that callback function with
+   * either an error or the data from the API call
+   * @param {Function} callbackFn - Function,
+   */
   getAllteam(callbackFn: Function,) {
     const sub = this.http.get('https://www.balldontlie.io/api/v1/teams').subscribe({
       next: (data) => {
